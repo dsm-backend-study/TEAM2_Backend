@@ -28,4 +28,11 @@ public class TodoController {
     ) {
         todoService.deleteTodo(todoId);
     }
+
+    @PostMapping("/{todoId}")
+    public void clickCheckBox(
+            @PathVariable Long todoId
+    ){
+        todoService.clickCheckBox(todoId);
+    }
 }

@@ -18,6 +18,10 @@ public class Todo {
 
     private boolean isChecked = false;
 
+    public void clickCheckBox(){
+        this.isChecked = !this.isChecked;
+    }
+
     @Builder
     public Todo(
             String content,
