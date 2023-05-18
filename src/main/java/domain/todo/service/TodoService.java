@@ -11,6 +11,7 @@ import org.springframework.stereotype.Service;
 public class TodoService {
 
     private final TodoRepository todoRepository;
+
     public void addTodo(
             TodoCreateRequest request
     ) {
@@ -18,6 +19,11 @@ public class TodoService {
                     Todo.builder()
                             .content(request.getContent())
                             .build());
+    }
 
+    public void deleteTodo(
+            Long todoId
+    ) {
+        todoRepository.deleteById(todoId);
     }
 }

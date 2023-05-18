@@ -4,10 +4,7 @@ import domain.todo.controller.dto.request.TodoCreateRequest;
 import domain.todo.repository.TodoRepository;
 import domain.todo.service.TodoService;
 import lombok.RequiredArgsConstructor;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RequestMapping("/todo")
 @RestController
@@ -22,6 +19,13 @@ public class TodoController {
     public void todoAdd(
             @RequestBody TodoCreateRequest request
             ) {
+        todoService.addTodo(request);
+    }
 
+    @DeleteMapping("/{todoId}")
+    public void todoRemove(
+            @PathVariable Long todoId
+    ) {
+        todoService.deleteTodo(todoId);
     }
 }
