@@ -14,6 +14,7 @@ public class TodoService {
 
     private final TodoRepository todoRepository;
 
+    @Transactional
     public void addTodo(
             TodoCreateRequest request
     ) {
@@ -23,6 +24,7 @@ public class TodoService {
                             .build());
     }
 
+    @Transactional
     public void deleteTodo(
             Long todoId
     ) {
@@ -38,7 +40,7 @@ public class TodoService {
 
         todo.clickCheckBox();
     }
-
+//findByAccountId(String accountId) -> O = 중복, X = 사용 가능
     @Transactional
     public void update(
             Long todoId, TodoUpdateRequest request

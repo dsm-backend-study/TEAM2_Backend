@@ -2,17 +2,16 @@ package domain.todo.controller;
 
 import domain.todo.controller.dto.request.TodoCreateRequest;
 import domain.todo.controller.dto.request.TodoUpdateRequest;
-import domain.todo.repository.TodoRepository;
 import domain.todo.service.TodoService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
+
+import javax.validation.Valid;
 
 @RequestMapping("/todo")
 @RestController
 @RequiredArgsConstructor
 public class TodoController {
-
-    private final TodoRepository todoRepository;
 
     private final TodoService todoService;
 
@@ -33,14 +32,14 @@ public class TodoController {
     @PostMapping("/{todoId}")
     public void clickCheckBox(
             @PathVariable Long todoId
-    ){
+    ) {
         todoService.clickCheckBox(todoId);
     }
 
     @PutMapping("/{todoId}")
     public void update(
             @PathVariable Long id,
-            @RequestBody TodoUpdateRequest todoUpdateRequest
+            @Valid @RequestBody TodoUpdateRequest todoUpdateRequest
     ) {
         todoService.update(id, todoUpdateRequest);
     }
