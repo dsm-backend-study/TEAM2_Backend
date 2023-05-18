@@ -1,6 +1,7 @@
 package domain.todo.controller;
 
 import domain.todo.controller.dto.request.TodoCreateRequest;
+import domain.todo.controller.dto.request.TodoUpdateRequest;
 import domain.todo.repository.TodoRepository;
 import domain.todo.service.TodoService;
 import lombok.RequiredArgsConstructor;
@@ -35,4 +36,13 @@ public class TodoController {
     ){
         todoService.clickCheckBox(todoId);
     }
+
+    @PutMapping("/{todoId}")
+    public void update(
+            @PathVariable Long id,
+            @RequestBody TodoUpdateRequest todoUpdateRequest
+    ) {
+        todoService.update(id, todoUpdateRequest);
+    }
+
 }

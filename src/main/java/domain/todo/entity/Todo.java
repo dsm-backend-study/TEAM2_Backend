@@ -1,5 +1,6 @@
 package domain.todo.entity;
 
+import domain.todo.controller.dto.request.TodoUpdateRequest;
 import lombok.Builder;
 
 import javax.persistence.Entity;
@@ -20,6 +21,12 @@ public class Todo {
 
     public void clickCheckBox(){
         this.isChecked = !this.isChecked;
+    }
+
+    public void update(
+            TodoUpdateRequest request
+    ) {
+        this.content = request.getContent();
     }
 
     @Builder
