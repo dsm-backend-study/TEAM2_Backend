@@ -1,5 +1,7 @@
 package domain.todo.entity;
 
+import lombok.Builder;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -14,4 +16,14 @@ public class Todo {
 
     private String content;
 
+    private boolean isChecked = false;
+
+    @Builder
+    public Todo(
+            String content,
+            boolean isChecked
+    ) {
+        this.content = content;
+        this.isChecked = isChecked;
+    }
 }
