@@ -16,17 +16,17 @@ public class TodoController {
     private final TodoService todoService;
 
     @PostMapping
-    public void todoAdd(
+    public void orderAdd (
             @RequestBody TodoCreateRequest request
             ) {
-        todoService.addTodo(request);
+        todoService.addOrder(request);
     }
 
     @DeleteMapping("/{todoId}")
-    public void todoRemove(
+    public void orderRemove(
             @PathVariable Long todoId
     ) {
-        todoService.deleteTodo(todoId);
+        todoService.removeOrder(todoId);
     }
 
     @PostMapping("/{todoId}")
@@ -37,11 +37,11 @@ public class TodoController {
     }
 
     @PutMapping("/{todoId}")
-    public void update(
+    public void orderModify(
             @PathVariable Long id,
             @Valid @RequestBody TodoUpdateRequest todoUpdateRequest
     ) {
-        todoService.update(id, todoUpdateRequest);
+        todoService.modifyOrder(id, todoUpdateRequest);
     }
 
 }

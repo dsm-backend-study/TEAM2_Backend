@@ -15,7 +15,7 @@ public class TodoService {
     private final TodoRepository todoRepository;
 
     @Transactional
-    public void addTodo(
+    public void addOrder(
             TodoCreateRequest request
     ) {
             todoRepository.save(
@@ -25,7 +25,7 @@ public class TodoService {
     }
 
     @Transactional
-    public void deleteTodo(
+    public void removeOrder(
             Long todoId
     ) {
         todoRepository.deleteById(todoId);
@@ -42,7 +42,7 @@ public class TodoService {
     }
 //findByAccountId(String accountId) -> O = 중복, X = 사용 가능
     @Transactional
-    public void update(
+    public void modifyOrder(
             Long todoId, TodoUpdateRequest request
     ) {
         Todo todo = todoRepository.findById(todoId)
