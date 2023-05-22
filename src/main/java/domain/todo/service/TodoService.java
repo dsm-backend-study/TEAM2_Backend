@@ -2,6 +2,8 @@ package domain.todo.service;
 
 import domain.todo.controller.dto.request.TodoCreateRequest;
 import domain.todo.controller.dto.request.TodoUpdateRequest;
+import domain.todo.controller.dto.response.TodoListResponse;
+import domain.todo.controller.dto.response.TodoResponse;
 import domain.todo.entity.Todo;
 import domain.todo.repository.TodoRepository;
 import lombok.RequiredArgsConstructor;
@@ -10,22 +12,23 @@ import org.springframework.transaction.annotation.Transactional;
 
 @Service
 @RequiredArgsConstructor
+@Transactional(readOnly = true)
 public class TodoService {
 
     private final TodoRepository todoRepository;
 
     @Transactional
-    public void addOrder(
+    public void addTodo(
             TodoCreateRequest request
     ) {
-            todoRepository.save(
-                    Todo.builder()
-                            .content(request.getContent())
-                            .build());
+        todoRepository.save(
+                Todo.builder()
+                        .content(request.getContent())
+                        .build());
     }
 
     @Transactional
-    public void removeOrder(
+    public void removeTodo(
             Long todoId
     ) {
         todoRepository.deleteById(todoId);
@@ -40,14 +43,26 @@ public class TodoService {
 
         todo.clickCheckBox();
     }
-//findByAccountId(String accountId) -> O = 중복, X = 사용 가능
+
+    //findByAccountId(String accountId) -> O = 중복, X = 사용 가능
     @Transactional
-    public void modifyOrder(
+    public void modifyTodo(
             Long todoId, TodoUpdateRequest request
     ) {
         Todo todo = todoRepository.findById(todoId)
                 .orElseThrow();
 
         todo.update(request);
+    }
+
+    public TodoListResponse listTodo() {
+        return TodoListResponse.builder()
+                .todoList(
+                        todoRepository.findAll()
+                                .stream()
+                                .map(TodoResponse::of)
+                                .toList()
+                )
+                .build();
     }
 }

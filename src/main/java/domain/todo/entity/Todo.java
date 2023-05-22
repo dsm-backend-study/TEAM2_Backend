@@ -1,7 +1,9 @@
 package domain.todo.entity;
 
 import domain.todo.controller.dto.request.TodoUpdateRequest;
+import domain.todo.controller.dto.response.TodoListResponse;
 import lombok.Builder;
+import lombok.Getter;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -9,6 +11,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 @Entity
+@Getter
 public class Todo {
 
     @Id

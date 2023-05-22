@@ -2,6 +2,7 @@ package domain.todo.controller;
 
 import domain.todo.controller.dto.request.TodoCreateRequest;
 import domain.todo.controller.dto.request.TodoUpdateRequest;
+import domain.todo.controller.dto.response.TodoListResponse;
 import domain.todo.service.TodoService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
@@ -16,17 +17,17 @@ public class TodoController {
     private final TodoService todoService;
 
     @PostMapping
-    public void orderAdd (
+    public void todoAdd(
             @RequestBody TodoCreateRequest request
             ) {
-        todoService.addOrder(request);
+        todoService.addTodo(request);
     }
 
     @DeleteMapping("/{todoId}")
-    public void orderRemove(
+    public void todoRemove(
             @PathVariable Long todoId
     ) {
-        todoService.removeOrder(todoId);
+        todoService.removeTodo(todoId);
     }
 
     @PostMapping("/{todoId}")
@@ -37,11 +38,16 @@ public class TodoController {
     }
 
     @PutMapping("/{todoId}")
-    public void orderModify(
-            @PathVariable Long id,
+    public void todoModify(
+            @PathVariable Long todoId,
             @Valid @RequestBody TodoUpdateRequest todoUpdateRequest
     ) {
-        todoService.modifyOrder(id, todoUpdateRequest);
+        todoService.modifyTodo(todoId, todoUpdateRequest);
     }
 
+    @GetMapping
+    public TodoListResponse orderList()
+    {
+        return todoService.listTodo();
+    }
 }
