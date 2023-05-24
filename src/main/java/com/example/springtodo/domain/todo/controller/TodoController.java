@@ -1,9 +1,9 @@
-package domain.todo.controller;
+package com.example.springtodo.domain.todo.controller;
 
-import domain.todo.controller.dto.request.TodoCreateRequest;
-import domain.todo.controller.dto.request.TodoUpdateRequest;
-import domain.todo.controller.dto.response.TodoListResponse;
-import domain.todo.service.TodoService;
+import com.example.springtodo.domain.todo.controller.dto.request.TodoCreateRequest;
+import com.example.springtodo.domain.todo.controller.dto.request.TodoUpdateRequest;
+import com.example.springtodo.domain.todo.controller.dto.response.TodoListResponse;
+import com.example.springtodo.domain.todo.service.TodoService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 

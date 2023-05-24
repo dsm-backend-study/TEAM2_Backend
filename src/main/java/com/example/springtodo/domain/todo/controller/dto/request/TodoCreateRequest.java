@@ -1,4 +1,4 @@
-package domain.todo.controller.dto.request;
+package com.example.springtodo.domain.todo.controller.dto.request;
 
 import lombok.AccessLevel;
 import lombok.Getter;

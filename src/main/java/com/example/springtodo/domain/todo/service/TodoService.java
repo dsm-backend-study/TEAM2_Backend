@@ -1,11 +1,11 @@
-package domain.todo.service;
+package com.example.springtodo.domain.todo.service;
 
-import domain.todo.controller.dto.request.TodoCreateRequest;
-import domain.todo.controller.dto.request.TodoUpdateRequest;
-import domain.todo.controller.dto.response.TodoListResponse;
-import domain.todo.controller.dto.response.TodoResponse;
-import domain.todo.entity.Todo;
-import domain.todo.repository.TodoRepository;
+import com.example.springtodo.domain.todo.controller.dto.response.TodoListResponse;
+import com.example.springtodo.domain.todo.controller.dto.request.TodoCreateRequest;
+import com.example.springtodo.domain.todo.controller.dto.request.TodoUpdateRequest;
+import com.example.springtodo.domain.todo.controller.dto.response.TodoResponse;
+import com.example.springtodo.domain.todo.entity.Todo;
+import com.example.springtodo.domain.todo.repository.TodoRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -65,4 +65,6 @@ public class TodoService {
                 )
                 .build();
     }
+
+
 }

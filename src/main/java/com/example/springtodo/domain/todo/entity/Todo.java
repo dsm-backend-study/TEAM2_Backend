@@ -1,7 +1,6 @@
-package domain.todo.entity;
+package com.example.springtodo.domain.todo.entity;
 
-import domain.todo.controller.dto.request.TodoUpdateRequest;
-import domain.todo.controller.dto.response.TodoListResponse;
+import com.example.springtodo.domain.todo.controller.dto.request.TodoUpdateRequest;
 import lombok.Builder;
 import lombok.Getter;
 

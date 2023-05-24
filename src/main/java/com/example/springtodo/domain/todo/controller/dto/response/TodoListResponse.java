@@ -1,4 +1,4 @@
-package domain.todo.controller.dto.response;
+package com.example.springtodo.domain.todo.controller.dto.response;
 
 
 import lombok.Builder;

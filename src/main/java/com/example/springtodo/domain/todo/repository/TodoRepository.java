@@ -1,7 +1,7 @@
-package domain.todo.repository;
+package com.example.springtodo.domain.todo.repository;
 
 
-import domain.todo.entity.Todo;
+import com.example.springtodo.domain.todo.entity.Todo;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 

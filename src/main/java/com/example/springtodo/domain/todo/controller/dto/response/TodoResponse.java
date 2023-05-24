@@ -1,6 +1,6 @@
-package domain.todo.controller.dto.response;
+package com.example.springtodo.domain.todo.controller.dto.response;
 
-import domain.todo.entity.Todo;
+import com.example.springtodo.domain.todo.entity.Todo;
 import lombok.Builder;
 
 @Builder
