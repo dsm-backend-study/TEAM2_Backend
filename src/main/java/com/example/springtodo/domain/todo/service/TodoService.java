@@ -12,12 +12,11 @@ import org.springframework.transaction.annotation.Transactional;
 
 @Service
 @RequiredArgsConstructor
-@Transactional(readOnly = true)
+@Transactional
 public class TodoService {
 
     private final TodoRepository todoRepository;
 
-    @Transactional
     public void addTodo(
             TodoCreateRequest request
     ) {
@@ -27,14 +26,12 @@ public class TodoService {
                         .build());
     }
 
-    @Transactional
     public void removeTodo(
             Long todoId
     ) {
         todoRepository.deleteById(todoId);
     }
 
-    @Transactional
     public void clickCheckBox(
             Long todoId
     ) {
@@ -45,7 +42,6 @@ public class TodoService {
     }
 
     //findByAccountId(String accountId) -> O = 중복, X = 사용 가능
-    @Transactional
     public void modifyTodo(
             Long todoId, TodoUpdateRequest request
     ) {
@@ -55,6 +51,7 @@ public class TodoService {
         todo.update(request);
     }
 
+    @Transactional(readOnly = true)
     public TodoListResponse listTodo() {
         return TodoListResponse.builder()
                 .todoList(

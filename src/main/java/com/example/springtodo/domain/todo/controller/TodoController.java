@@ -10,8 +10,8 @@ import org.springframework.web.bind.annotation.*;
 import javax.validation.Valid;
 
 @RequestMapping("/todo")
-@RestController
 @RequiredArgsConstructor
+@RestController
 public class TodoController {
 
     private final TodoService todoService;

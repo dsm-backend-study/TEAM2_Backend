@@ -1,14 +1,17 @@
 package com.example.springtodo.domain.todo.entity;
 
 import com.example.springtodo.domain.todo.controller.dto.request.TodoUpdateRequest;
+import lombok.AccessLevel;
 import lombok.Builder;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
+@NoArgsConstructor(access = AccessLevel.PROTECTED)
 @Entity
 @Getter
 public class Todo {
@@ -25,7 +28,7 @@ public class Todo {
         this.isChecked = !this.isChecked;
     }
 
-    public void update(
+    public void update (
             TodoUpdateRequest request
     ) {
         this.content = request.getContent();

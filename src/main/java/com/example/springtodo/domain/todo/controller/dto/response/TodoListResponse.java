@@ -7,6 +7,7 @@ import java.util.List;
 
 @Builder
 public class TodoListResponse {
+
     private List<TodoResponse> todoList;
 
 }
