@@ -1,6 +1,6 @@
 package com.example.springtodo.domain.User.controller;
 
-import com.example.springtodo.domain.User.controller.dto.request.UserCreateRequest;
+import com.example.springtodo.domain.User.controller.dto.request.UserSignRequest;
 import com.example.springtodo.domain.User.service.UserService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
@@ -14,7 +14,7 @@ public class UserController {
 
     @PostMapping("/sign-up")
     public void userCreate(
-            @RequestBody UserCreateRequest request
+            @RequestBody UserSignRequest request
             ) {
         userService.createUser(request);
     }

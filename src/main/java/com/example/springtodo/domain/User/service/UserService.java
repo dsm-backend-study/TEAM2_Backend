@@ -1,6 +1,6 @@
 package com.example.springtodo.domain.User.service;
 
-import com.example.springtodo.domain.User.controller.dto.request.UserCreateRequest;
+import com.example.springtodo.domain.User.controller.dto.request.UserSignRequest;
 import com.example.springtodo.domain.User.entity.User;
 import com.example.springtodo.domain.User.exception.AlreadyExistEmailException;
 import com.example.springtodo.domain.User.repository.UserRepository;
@@ -19,7 +19,7 @@ public class UserService {
 
     @Transactional
     public void createUser(
-        UserCreateRequest userCreateRequest
+            UserSignRequest userCreateRequest
     ) {
         String userId = userCreateRequest.getUserId();
         Optional<User>user = userRepository.findByUserId(userId);
