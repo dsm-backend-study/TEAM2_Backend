@@ -50,7 +50,7 @@ public class UserService {
             return "login succeeded";
 
         else
-            return "password is not matched";
+            return "password or Id is not matched";
 
     }
 }
