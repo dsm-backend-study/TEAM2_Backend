@@ -1,6 +1,5 @@
 package com.example.springtodo.domain.User.controller;
 
-import com.example.springtodo.domain.User.controller.dto.request.UserLoginRequest;
 import com.example.springtodo.domain.User.controller.dto.request.UserSignRequest;
 import com.example.springtodo.domain.User.service.UserService;
 import lombok.RequiredArgsConstructor;
@@ -20,11 +19,5 @@ public class UserController {
         userService.createUser(request);
     }
 
-    @PostMapping("/login")
-    public void userLogin(
-            @RequestBody UserLoginRequest userLoginRequest
-            ) {
-        userService.loginUser(userLoginRequest);
-
-    }
 }
+

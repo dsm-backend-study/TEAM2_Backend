@@ -1,8 +1,6 @@
 package com.example.springtodo.domain.User.service;
 
-import com.example.springtodo.domain.User.controller.dto.request.UserLoginRequest;
 import com.example.springtodo.domain.User.controller.dto.request.UserSignRequest;
-import com.example.springtodo.domain.User.controller.dto.request.UserUpdateRequest;
 import com.example.springtodo.domain.User.entity.User;
 import com.example.springtodo.domain.User.exception.AlreadyExistEmailException;
 import com.example.springtodo.domain.User.repository.UserRepository;
@@ -32,25 +30,10 @@ public class UserService {
                             .userId(userCreateRequest.getUserId())
                             .userName(userCreateRequest.getUserName())
                             .userPassword(userCreateRequest.getUserPassword())
-                            .userEmail(userCreateRequest.getUserEmail())
                             .build()
             );
         }
         else
             throw new AlreadyExistEmailException();
-    }
-
-    @Transactional
-    public String loginUser(
-            UserLoginRequest userLoginRequest
-    ) {
-        User user = userRepository.findByUserId(userLoginRequest.getUserId())
-                .orElseThrow();
-        if(userLoginRequest.getUserId() == user.getUserId() && userLoginRequest.getUserPassword() == user.getUserPassword())
-            return "login succeeded";
-
-        else
-            return "password or Id is not matched";
-
     }
 }

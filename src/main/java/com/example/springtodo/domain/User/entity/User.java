@@ -23,14 +23,12 @@ public class User {
 
         private String userName;
 
-        private String userEmail;
 
         @Builder
-        public User(String userId, String userName, String userPassword, String userEmail){
+        public User(String userId, String userName, String userPassword){
                 this.userId = userId;
                 this.userName = userName;
                 this.userPassword = userPassword;
-                this.userEmail = userEmail;
         }
 }
 

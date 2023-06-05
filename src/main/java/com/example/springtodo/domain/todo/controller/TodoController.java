@@ -40,7 +40,7 @@ public class TodoController {
     @PutMapping("/{todoId}")
     public void todoModify(
             @PathVariable Long todoId,
-            @Valid @RequestBody TodoUpdateRequest todoUpdateRequest
+            @RequestBody TodoUpdateRequest todoUpdateRequest
     ) {
         todoService.modifyTodo(todoId, todoUpdateRequest);
     }
