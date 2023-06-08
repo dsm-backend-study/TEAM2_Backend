@@ -1,6 +1,7 @@
 package com.example.springtodo.domain.User.service;
 
 import com.example.springtodo.domain.User.controller.dto.request.UserSignRequest;
+import com.example.springtodo.domain.User.controller.dto.request.UserUpdateRequest;
 import com.example.springtodo.domain.User.entity.User;
 import com.example.springtodo.domain.User.repository.UserRepository;
 import com.example.springtodo.domain.User.service.exception.AlreadyExistEmailException;
@@ -34,5 +35,20 @@ public class UserService {
 
         else
             throw new AlreadyExistEmailException();
+    }
+
+    @Transactional
+    public void update(
+            UserUpdateRequest request
+    ) {
+        User user = userRepository.findByUserId(request.getUserId())
+                .orElseThrow();
+
+        user.userUpdate(request.getUserId(), request.getUserName(), request.getUserName());
+    }
+
+    @Transactional
+    public void delete(Long userId) {
+        userRepository.deleteById(userId);
     }
 }
