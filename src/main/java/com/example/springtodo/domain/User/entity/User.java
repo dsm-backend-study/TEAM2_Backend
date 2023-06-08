@@ -30,5 +30,11 @@ public class User {
                 this.userName = userName;
                 this.userPassword = userPassword;
         }
+
+        public void userUpdate(String userId, String userName, String userPassword) {
+                this.userId = userId;
+                this.userName = userName;
+                this.userPassword = userPassword;
+        }
 }
 

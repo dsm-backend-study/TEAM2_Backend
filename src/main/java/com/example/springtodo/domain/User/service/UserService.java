@@ -1,8 +1,10 @@
 package com.example.springtodo.domain.User.service;
 
 import com.example.springtodo.domain.User.controller.dto.request.UserSignRequest;
+import com.example.springtodo.domain.User.controller.dto.request.UserUpdateRequest;
 import com.example.springtodo.domain.User.entity.User;
 import com.example.springtodo.domain.User.repository.UserRepository;
+import com.example.springtodo.domain.User.service.exception.AlreadyExistEmailException;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -21,10 +23,8 @@ public class UserService {
             UserSignRequest userCreateRequest
     ) {
         String userId = userCreateRequest.getUserId();
-        User user = userRepository.findByUserId(userId)
-                        .orElseThrow();
-
-
+        Optional<User> user = userRepository.findByUserId(userId);
+        if(user.isEmpty())
             userRepository.save(
                     User.builder()
                             .userId(userCreateRequest.getUserId())
@@ -32,5 +32,23 @@ public class UserService {
                             .userPassword(userCreateRequest.getUserPassword())
                             .build()
             );
+
+        else
+            throw new AlreadyExistEmailException();
+    }
+
+    @Transactional
+    public void update(
+            UserUpdateRequest request
+    ) {
+        User user = userRepository.findByUserId(request.getUserId())
+                .orElseThrow();
+
+        user.userUpdate(request.getUserId(), request.getUserName(), request.getUserName());
+    }
+
+    @Transactional
+    public void delete(Long userId) {
+        userRepository.deleteById(userId);
     }
 }
