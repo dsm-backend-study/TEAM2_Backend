@@ -38,29 +38,18 @@ public class UserService {
     }
 
     @Transactional
-<<<<<<< HEAD
     public void updateUser(
-=======
-    public void update(
->>>>>>> todo
             UserUpdateRequest request
     ) {
         User user = userRepository.findByUserId(request.getUserId())
                 .orElseThrow();
-<<<<<<< HEAD
-    
-=======
 
->>>>>>> todo
         user.userUpdate(request.getUserId(), request.getUserName(), request.getUserName());
     }
 
     @Transactional
-<<<<<<< HEAD
     public void deleteUser(Long userId) {
-=======
-    public void delete(Long userId) {
->>>>>>> todo
+
         userRepository.deleteById(userId);
     }
 }
