@@ -21,17 +21,28 @@ public class UserController {
     }
 
     @PutMapping("/modify/{userId}")
+<<<<<<< HEAD
     public void userUpdate(
             @RequestBody UserUpdateRequest userUpdateRequest
             ) {
         userService.updateUser(userUpdateRequest);
+=======
+    public void updateUser(
+            @RequestBody UserUpdateRequest userUpdateRequest
+            ) {
+        userService.update(userUpdateRequest);
+>>>>>>> todo
     }
 
     @DeleteMapping("remove/{userId}")
     public void userRemove(
             @PathVariable Long userId
     ) {
+<<<<<<< HEAD
         userService.deleteUser(userId);
+=======
+        userService.delete(userId);
+>>>>>>> todo
     }
 }
 

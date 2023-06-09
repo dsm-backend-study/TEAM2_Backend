@@ -6,7 +6,10 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @Getter
 public class UserSignRequest {
+<<<<<<< HEAD
 
+=======
+>>>>>>> todo
     private String userId;
 
     private String userPassword;
