@@ -1,6 +1,7 @@
 package com.example.springtodo.domain.User.controller;
 
-import com.example.springtodo.domain.User.controller.dto.request.UserCreateRequest;
+import com.example.springtodo.domain.User.controller.dto.request.UserSignRequest;
+import com.example.springtodo.domain.User.controller.dto.request.UserUpdateRequest;
 import com.example.springtodo.domain.User.service.UserService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
@@ -14,8 +15,23 @@ public class UserController {
 
     @PostMapping("/sign-up")
     public void userCreate(
-            @RequestBody UserCreateRequest request
+            @RequestBody UserSignRequest userSignRequest
             ) {
-        userService.createUser(request);
+        userService.createUser(userSignRequest);
+    }
+
+    @PutMapping("/modify/{userId}")
+    public void userUpdate(
+            @RequestBody UserUpdateRequest userUpdateRequest
+            ) {
+        userService.updateUser(userUpdateRequest);
+    }
+
+    @DeleteMapping("remove/{userId}")
+    public void userRemove(
+            @PathVariable Long userId
+    ) {
+        userService.deleteUser(userId);
     }
 }
+
