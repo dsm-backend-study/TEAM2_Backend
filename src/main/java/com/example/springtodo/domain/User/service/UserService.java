@@ -33,8 +33,9 @@ public class UserService {
                             .build()
             );
 
-        else
+        else {
             throw new AlreadyExistEmailException();
+        }
     }
 
     @Transactional
