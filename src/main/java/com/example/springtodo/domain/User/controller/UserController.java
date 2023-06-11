@@ -27,7 +27,7 @@ public class UserController {
         userService.updateUser(userUpdateRequest);
     }
 
-    @DeleteMapping("remove/{userId}")
+    @DeleteMapping("/remove/{userId}")
     public void userRemove(
             @PathVariable Long userId
     ) {
